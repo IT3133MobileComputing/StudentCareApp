@@ -26,5 +26,7 @@ const styles = StyleSheet.create({
     },
     footerText: {
         color: 'white', 
+        fontSize: 24,
+        fontWeight: 'bold'
     }
 });

@@ -8,7 +8,7 @@ export default function Header() {
             <ScrollView>
                 <Appbar.Header mode='center-aligned' style={{ backgroundColor: 'purple' }}>
                     <Appbar.BackAction onPress={_goBack} color='white' />
-                    <Appbar.Content title="UoV Student Care" titleStyle={{ color: 'white' }} />
+                    <Appbar.Content title="UoV Student Care" titleStyle={{ color: 'white', fontSize: 24, fontWeight: 'bold' }} />
                 </Appbar.Header>
             </ScrollView>
         </PaperProvider>
