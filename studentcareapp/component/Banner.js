@@ -7,20 +7,20 @@ export default function Header() {
         <PaperProvider>
             <ScrollView>
                 <View style={styles.imagepad}>
-                    <Image source={require('../assets/UOV.jpg')} style={styles.image}/>
+                    <Image source={require('../assets/UOV.jpg')} style={styles.image} />
                 </View>
             </ScrollView>
         </PaperProvider>
     )
-}const styles = StyleSheet.create({
-    imagepad:{
+} const styles = StyleSheet.create({
+    imagepad: {
         padding: 8,
-         alignItems: 'center',
+        alignItems: 'center',
         flex: 2,
         marginTop: 0
     },
-    image:{
+    image: {
         width: '80%',
         height: 100,
-    }, 
+    },
 });
