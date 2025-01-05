@@ -1,7 +1,8 @@
 import { PaperProvider, Text, Divider } from 'react-native-paper';
 import { StyleSheet, View, Image, ScrollView } from 'react-native';
-import Header from './Banner';
+import Header from './Header';
 import Footer from './Footer'
+import BottomNavigation from './BottomNavigation'
 
 export default function Profile() {
     return (
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
         flexGrow: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 16,
+        paddingTop: 40,
         backgroundColor: '#f5f5f5',
     },
     container: {
@@ -64,6 +65,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.1,
         shadowRadius: 5,
         elevation: 3,
+        marginTop: 40,
     },
     header: {
         alignItems: 'center',
