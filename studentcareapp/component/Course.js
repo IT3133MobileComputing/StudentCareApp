@@ -1,7 +1,7 @@
 import { PaperProvider, Text, Divider } from 'react-native-paper';
 import { StyleSheet, View, ScrollView } from 'react-native';
 import { useState } from 'react';
-import Header from './Banner'
+import Header from './Header'
 import Footer from './Footer'
 
 export default function Course() {
