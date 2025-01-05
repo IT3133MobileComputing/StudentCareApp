@@ -1,6 +1,5 @@
 import { PaperProvider, Appbar, Divider, Button } from 'react-native-paper';
 import { StyleSheet, View, Text, ScrollView } from 'react-native';
-
 export default function Footer() {
     return (
         <PaperProvider>
@@ -14,15 +13,15 @@ export default function Footer() {
 }
 const styles = StyleSheet.create({
     footer: {
-        flex: 2,
+        flex: 1,
         backgroundColor: 'purple',
         height: 60,
         position: 'relative',
         bottom: 0,
         width: '100%',
         alignItems: 'center',
-        justifyContent: 'center',
-        color: 'white'
+        justifyContent: "center",
+        color: 'white',
     },
     footerText: {
         color: 'white', 
