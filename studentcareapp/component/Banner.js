@@ -1,7 +1,7 @@
 import { PaperProvider } from 'react-native-paper';
 import { StyleSheet, View, ScrollView, Image } from 'react-native';
 
-export default function Header() {
+export default function Banner() {
     const _goBack = () => console.log('Went back');
     return (
         <PaperProvider>
