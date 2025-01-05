@@ -1,5 +1,5 @@
-import { PaperProvider, Text } from 'react-native-paper';
-import { StyleSheet, View, ScrollView } from 'react-native';
+import { PaperProvider, Text, Divider } from 'react-native-paper';
+import { StyleSheet, View, Image, ScrollView } from 'react-native';
 import Header from './Header'
 import Footer from './Footer'
 
@@ -30,7 +30,7 @@ export default function Profile() {
 
                                 <Divider />
 
-                                <View style={style.section}>
+                                <View style={styles.section}>
                                     <Text style={styles.sectionTitle}>Biological Information</Text>
                                     <Text style={styles.text}>Gender: </Text>
                                     <Text style={styles.text}>Age: </Text>
