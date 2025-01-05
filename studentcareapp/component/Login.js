@@ -3,7 +3,9 @@ import { StyleSheet, View, ScrollView, KeyboardAvoidingView, Platform, Touchable
 import { useState } from 'react';
 import Footer from './Footer';
 import Header from './Header';
-export default function Login() {
+import { students } from '../database/StudentsDb';
+
+export default function Login({navigation}) {
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -11,37 +13,20 @@ export default function Login() {
     const [loading, setLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
 
-    const validateForm = () => {
-        if (!username.trim() || !password.trim()) {
-            setError("Username and password are required");
-            setVisible(true);
-            return false;
-        }
-        return true;
-    }
-
-    const handleLogin = async () => {
-        if (!validateForm()) return;
-
+    const handleLogin = () => {
         setLoading(true);
-        try {
-            if (username === "student" && password === "password") {
-                // Clear form and errors
-                setUsername("");
-                setPassword("");
-                setError("");
+        const student = students.find((s) => s.username === username && s.password === password);
 
-                // Navigate to home screen
-                // navigation.navigate('Home');
-            } else {
-                setError("Invalid username or password");
-                setVisible(true);
-            }
-        } catch (err) {
-            setError("An error occurred. Please try again.");
-            setVisible(true);
-        } finally {
+        if (student) {
+            setUserName('');
+            setPassword('');
             setLoading(false);
+            setVisible(false);
+            navigation.replace('BottomTabs'); 
+        } else {
+            setLoading(false);
+            setError('Invalid username or password');
+            setVisible(true);
         }
     };
 
