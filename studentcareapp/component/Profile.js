@@ -4,7 +4,8 @@ import Header from './Header';
 import Footer from './Footer'
 import BottomNavigation from './BottomNavigation'
 
-export default function Profile() {
+export default function Profile({route}) {
+    const { student } = route.params;
     return (
         <PaperProvider>
             <Header />
@@ -13,29 +14,29 @@ export default function Profile() {
                     <View style={styles.container}>
                         <View style={styles.header}>
                             <Image
-                                source={{ uri: 'https://via.placeholder.com/150' }}
+                                source={student.profile_pic}
                                 style={styles.avatar}
                             />
-                            <Text style={styles.name}>Alice Johnson</Text>
-                            <Text style={styles.text}>Age: 21 | Gender: Female</Text>
+                            <Text style={styles.name}>{student.name}</Text>
+                            <Text style={styles.text}>Age: {student.age} | Gender: {student.gender}</Text>
                         </View>
 
                         <Divider />
 
                         <View style={styles.section}>
                             <Text style={styles.sectionTitle}>Contact Information</Text>
-                            <Text style={styles.text}>Email: </Text>
-                            <Text style={styles.text}>Phone: </Text>
-                            <Text style={styles.text}>Address: </Text>
+                            <Text style={styles.text}>Email: {student.email}</Text>
+                            <Text style={styles.text}>Phone: {student.phone}</Text>
+                            <Text style={styles.text}>Address: {student.address}</Text>
                         </View>
 
                         <Divider />
 
                         <View style={styles.section}>
                             <Text style={styles.sectionTitle}>Biological Information</Text>
-                            <Text style={styles.text}>Gender: </Text>
-                            <Text style={styles.text}>Age: </Text>
-                            <Text style={styles.text}>Blood Group: </Text>
+                            <Text style={styles.text}>Gender: {student.gender}</Text>
+                            <Text style={styles.text}>Age: {student.age}</Text>
+                            <Text style={styles.text}>Blood Group: {student.blood_group}</Text>
                         </View>
 
                     </View>
