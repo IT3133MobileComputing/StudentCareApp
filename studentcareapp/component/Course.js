@@ -1,10 +1,25 @@
 import { PaperProvider, Text, Divider } from 'react-native-paper';
 import { StyleSheet, View, ScrollView } from 'react-native';
-import { useState } from 'react';
 import Header from './Header'
 import Footer from './Footer'
+import { course } from '../database/StudentsDb'
 
-export default function Course() {
+export default function Course({route}) {
+    const { student } = route.params;
+    const id = student.course_id;
+    const course = courses.find(c => c.id === id);
+
+    if(!course){
+        return(
+            <View>
+                <Header/>
+                <Text style={styles.name}>
+                    Course not found
+                </Text>
+            </View>
+        )
+    }
+
     return (
         <PaperProvider>
             <Header />
@@ -12,18 +27,18 @@ export default function Course() {
                 <View style={styles.outerContainer}>
                     <View style={styles.container}>
                         <View style={styles.header}>
-                            <Text style={styles.name}>Computer Science</Text>
-                            <Text style={styles.text}>Code: | Dept: </Text>
+                            <Text style={styles.name}>{course.name}</Text>
+                            <Text style={styles.text}>Code: {course.course_code}| Dept: {}</Text>
                         </View>
 
                         <Divider />
 
                         <View style={styles.section}>
                             <Text style={styles.sectionTitle}>Course Information</Text>
-                            <Text style={styles.text}>Code: </Text>
-                            <Text style={styles.text}>Department: </Text>
-                            <Text style={styles.text}>Duration: </Text>
-                            <Text style={styles.text}>Description: </Text>
+                            <Text style={styles.text}>Code: {course.code}</Text>
+                            <Text style={styles.text}>Department: {course.department}</Text>
+                            <Text style={styles.text}>Duration: {course.duration}</Text>
+                            <Text style={styles.text}>Description: {course.description}</Text>
                         </View>
 
                         <Divider />
