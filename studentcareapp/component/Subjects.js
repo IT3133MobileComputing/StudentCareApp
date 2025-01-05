@@ -1,10 +1,16 @@
 import { PaperProvider, Text, Divider } from 'react-native-paper';
 import { StyleSheet, View, ScrollView } from 'react-native';
-import { useState } from 'react';
 import Header from './Header'
 import Footer from './Footer'
+import { subjects, marks, courses } from '../database/StudentsDb'
 
-export default function Subjects() {
+export default function Subjects({ route }) {
+    const { student } = route.params;
+    const cid = student.course_id;
+    const course = courses.find(c => c.id === cid);
+    const courseSubjects = subjects.filter(subject => subject.course_id === cid);
+    const studentMarks = marks.filter(mark => mark.student_id === student.id);
+
     return (
         <PaperProvider>
             <Header />
@@ -12,19 +18,21 @@ export default function Subjects() {
                 <View style={styles.outerContainer}>
                     <View style={styles.container}>
                         <View style={styles.header}>
-                            <Text style={styles.name}>Computer Science</Text>
-                            <Text style={styles.text}>3 Subjects | Average: </Text>
+                            <Text style={styles.name}>{course.name}</Text>
+                            <Text style={styles.text}>{courseSubjects.length} Subjects | Average: {averageMarks.toFixed(2)}</Text>
                         </View>
 
                         <Divider />
 
-                        <View style={styles.section}>
-                            <Text style={styles.sectionTitle}>Marks Information</Text>
-                            <Text style={styles.text}>Subject           Marks </Text>
-                            <Text style={styles.text}>Data Structures          85</Text>
-                            <Text style={styles.text}>Algorithms          90</Text>
-                            <Text style={styles.text}>Database Systems          88</Text>
-                        </View>
+                        <Text style={styles.sectionTitle}>Marks Information</Text>
+                        {courseSubjects.map(subject => (
+                            <View key={subject.id} style={styles.section}>
+                                <Text style={styles.text}>{subject.name}</Text>
+                                <Text style={styles.text}>
+                                    Marks: {studentMarks.find(mark => mark.subject_id === subject.id)?.marks || 'N/A'}
+                                </Text>
+                            </View>
+                        ))}
 
                         <Divider />
 
