@@ -5,22 +5,30 @@ export default function Header() {
     const _goBack = () => console.log('Went back');
     return (
         <PaperProvider>
-            <ScrollView>
-                <View style={styles.imagepad}>
+            <ScrollView contentContainerStyle={styles.container}>
+                <View style={styles.imageContainer}>
                     <Image source={require('../assets/UOV.jpg')} style={styles.image} />
                 </View>
             </ScrollView>
         </PaperProvider>
     )
-} const styles = StyleSheet.create({
-    imagepad: {
-        padding: 8,
+} 
+const styles = StyleSheet.create({
+    container: {
+        flexGrow: 1,
+        backgroundColor: '#fff',
+        marginTop: 5,
+    },
+    imageContainer: {
+        width: '100%',
+        height: 120,
+        justifyContent: 'center',
         alignItems: 'center',
-        flex: 2,
-        marginTop: 0
+        paddingVertical: 10,
     },
     image: {
         width: '80%',
-        height: 100,
+        height: '100%',
+        maxWidth: 400,
     },
-});
+})
